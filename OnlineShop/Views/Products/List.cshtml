@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ViewModel.PreviewProductViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = ViewBag.categoryTitle;
+}
+<style type="text/css">
+    .product-image{
+        min-height:185px;
+    }
+</style>
+<div class='clearfix'></div>
+<div class='center' style="margin-bottom:2%">
+    <ul class="press">
+        @foreach (var item in Model)
+        {
+            <li id="@Html.DisplayFor(modelItem => item.Id)" class="product">
+                <div class="product-card product-list-item">
+                    <div class="card card-product">
+                        <img src="@Html.DisplayFor(modelItem => item.MainImageTitle)" class="product-image product-list-img">
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
+                            <div class="row card-price-info">
+                                <p class="card-price-unit">تومان</p>
+                                <p class="card-price">@Html.DisplayFor(modelItem => item.Price)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+@section Scripts{
+    <script>
+        $(document).on('click', '.product', function () {
+            var id = $(this).attr("id");
+            window.location.href = "/Products/Details?id=" + id;
+        });
+    </script>
+    }

@@ -1,0 +1,104 @@
+﻿@model DomainModel.Category
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="row" style="margin: 0 15px 0 15px; direction: rtl;">
+        <!--Menu-->
+        <div class="col col-lg-3 col-sm-12">
+            <div class="box">
+                <div class="row">
+                    <div class="col col-lg-2">
+                        <img src="~/images/panel/user.svg" alt="user-photo">
+                    </div>
+                    <div class="col col-lg-10">
+                        <p class="bold">مدیر سیستم</p>
+                    </div>
+                </div>
+                <div class="line"></div>
+
+                <div class="row menu-item">
+                    <div class="col col-lg-2">
+                        <img src="~/images/panel/category.svg " class="menu-item-image" alt="products">
+                    </div>
+                    <div class="col col-lg-10">
+                        <a asp-action="Index" asp-controller="Products" class="menu-item-text">محصولات</a>
+                    </div>
+                </div>
+
+                <div class="row menu-item">
+                    <div class="col col-lg-2">
+                        <img src="~/images/panel/category-active.svg " class="menu-item-image" alt="products">
+                    </div>
+                    <div class="col col-lg-10">
+                        <a asp-action="Index" asp-controller="Categories" class="menu-item-text active">دسته‌بندی‌ها</a>
+                    </div>
+                </div>
+
+                <div class="row menu-item">
+                    <div class="col col-lg-2">
+                        <img src="~/images/panel/category.svg " class="menu-item-image" alt="products">
+                    </div>
+                    <div class="col col-lg-10">
+                        <a asp-action="Index" asp-controller="Users" class="menu-item-text">کاربران</a>
+                    </div>
+                </div>
+
+                <div class="row menu-item">
+                    <div class="col col-lg-2">
+                        <img src="~/images/panel/category.svg " class="menu-item-image" alt="products">
+                    </div>
+                    <div class="col col-lg-10">
+                        <a asp-action="Index" asp-controller="Orders" class="menu-item-text">سفارش‌ها</a>
+                    </div>
+                </div>
+                <div class="line menu-item"></div>
+                <div class="row menu-item">
+                    <div class="col col-lg-2">
+                        <img src="~/images/panel/logout.svg " class="menu-item-image" alt="logout">
+                    </div>
+                    <div class="col col-lg-10">
+                        <a asp-action="SignIn" asp-controller="User" asp-area="" class="menu-item-text">خروج</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--content-->
+        <div class="col col-lg-9 col-sm-12">
+            <div class="box">
+                <div class="row">
+                    <div class="col-md-4">
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="Name" class="control-label"></label>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Title" class="control-label"></label>
+                                <input asp-for="Title" class="form-control" />
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="submit" value="ثبت" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div>
+                    <a asp-action="Index">بازگشت به لیست</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

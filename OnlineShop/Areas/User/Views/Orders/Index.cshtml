@@ -1,0 +1,84 @@
+﻿@model IEnumerable<DomainModel.Order>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .panel {
+        margin: 0 15px 0 15px;
+        direction: rtl;
+    }
+</style>
+
+<div class="row panel" >
+    <!--Menu-->
+    <div class="col col-lg-3 col-sm-12">
+        <div class="box">
+            <div class="row">
+                <div class="col col-lg-2">
+                    <img src="~/images/panel/user.svg " alt="user-photo">
+                </div>
+                <div class="col col-lg-10">
+                    <p class="bold">كاربر بدون نام</p>
+                </div>
+            </div>
+            <div class="line"></div>
+
+            <div class="row menu-item">
+                <div class="col col-lg-2">
+                    <img src="~/images/panel/category-active.svg " class="menu-item-image" alt="products">
+                </div>
+                <div class="col col-lg-10">
+                    <a href="user-panel-shopping-cart.html" class="menu-item-text active">سبد خريد</a>
+                </div>
+            </div>
+
+            <div class="row menu-item">
+                <div class="col col-lg-2">
+                    <img src="~/images/panel/category.svg " class="menu-item-image" alt="products">
+                </div>
+                <div class="col col-lg-10">
+                    <a href="admin-paenl-category.html" class="menu-item-text">سفارش ها‌ي من</a>
+                </div>
+            </div>
+
+            <div class="row menu-item">
+                <div class="col col-lg-2">
+                    <img src="~/images/panel/category.svg " class="menu-item-image" alt="products">
+                </div>
+                <div class="col col-lg-10">
+                    <a href="user-panel-info.html" class="menu-item-text">اطلاعات حساب</a>
+                </div>
+            </div>
+
+            <div class="line menu-item"></div>
+            <div class="row menu-item">
+                <div class="col col-lg-2">
+                    <img src="~/images/panel/logout.svg " class="menu-item-image" alt="logout">
+                </div>
+                <div class="col col-lg-10">
+                    <a asp-action="SignIn" asp-controller="User" asp-area="" class="menu-item-text">خروج</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!--content-->
+    <div class="col col-lg-9 col-sm-12">
+        <div class="box">
+            <div style="margin:0 auto;">
+                <p>سبد خريد شما خالي است</p>
+                <a asp-action="Index" asp-controller="Home" asp-area="">رفتن به فروشگاه</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,231 @@
+﻿@model DomainModel.Product
+@addTagHelper *, Kendo.Mvc
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Kendo.Mvc.UI
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Create";
+}
+
+@section AddToHead{
+}
+<div class="row" style="margin: 0 15px 0 15px; direction:rtl;">
+    <!--Menu-->
+    <div class="col col-lg-3 col-sm-12">
+        <div class="box">
+            <div class="row">
+                <div class="col col-lg-2">
+                    <img src="~/images/panel/user.svg" alt="user-photo">
+                </div>
+                <div class="col col-lg-10">
+                    <p class="bold">مدیر سیستم</p>
+                </div>
+            </div>
+            <div class="line"></div>
+
+            <div class="row menu-item">
+                <div class="col col-lg-2">
+                    <img src="~/images/panel/category-active.svg " class="menu-item-image" alt="products">
+                </div>
+                <div class="col col-lg-10">
+                    <a asp-action="Index" asp-controller="Products" class="menu-item-text active">محصولات</a>
+                </div>
+            </div>
+
+            <div class="row menu-item">
+                <div class="col col-lg-2">
+                    <img src="~/images/panel/category.svg " class="menu-item-image" alt="products">
+                </div>
+                <div class="col col-lg-10">
+                    <a asp-action="Index" asp-controller="Categories" class="menu-item-text">دسته‌بندی‌ها</a>
+                </div>
+            </div>
+
+            <div class="row menu-item">
+                <div class="col col-lg-2">
+                    <img src="~/images/panel/category.svg " class="menu-item-image" alt="products">
+                </div>
+                <div class="col col-lg-10">
+                    <a asp-action="Index" asp-controller="Users" class="menu-item-text">کاربران</a>
+                </div>
+            </div>
+
+            <div class="row menu-item">
+                <div class="col col-lg-2">
+                    <img src="~/images/panel/category.svg " class="menu-item-image" alt="products">
+                </div>
+                <div class="col col-lg-10">
+                    <a asp-action="Index" asp-controller="Orders" class="menu-item-text">سفارش‌ها</a>
+                </div>
+            </div>
+            <div class="line menu-item"></div>
+            <div class="row menu-item">
+                <div class="col col-lg-2">
+                    <img src="~/images/panel/logout.svg " class="menu-item-image" alt="logout">
+                </div>
+                <div class="col col-lg-10">
+                    <a asp-action="SignIn" asp-controller="User" asp-area="" class="menu-item-text">خروج</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!--content-->
+    <div class="col col-lg-9 col-sm-12">
+        <div class="box">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="form-group">
+                            <label asp-for="Title" class="control-label"></label>
+                            <input asp-for="Title" class="form-control" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CategoryId" class="control-label"></label>
+                            <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Categories"></select>
+                            <span asp-validation-for="CategoryId" class="text-danger"></span>
+                        </div>
+
+                        @*@Html.DropDownList("Categories", ViewBag.Categories as SelectList, new { @id = "CategoryId", @class = "form-control mb-2" })*@
+
+                        <div class="form-group">
+                            <label asp-for="Price" class="control-label"></label>
+                            <input asp-for="Price" class="form-control" />
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Description" class="control-label"></label>
+                            <input asp-for="Description" class="form-control" />
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Quantity" class="control-label"></label>
+                            <input asp-for="Quantity" class="form-control" />
+                            <span asp-validation-for="Quantity" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">تصویر اصلی</label>
+                            <img id="main-image" src="@ViewBag.MainImageTitle" class="product-main-image">
+
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="ذخیره تغییرات" class="btn btn-primary" />
+                        </div>
+                        <div>
+                            <a asp-action="Index">بازگشت به لیست</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            $('#back').click(function () {
+                window.location.href = "@Url.Action("Index","Products")";
+            });
+
+            $("#Save1").click(function () {
+
+                var upload = $("#MainImage").data("kendoUpload"),
+                    files = upload.getFiles()[0];
+
+                console.log('files: ', files);
+
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("Create", "Products")",
+                    dataType: 'application/json; charset=utf-8',
+                    data: {
+                        'UserId': $("#UserId").val(),
+                        'CategoryId': $("#CategoryId").val(),
+                        'Title': $("#Title").val(),
+                        'Quantity': $("#Quantity").val(),
+                        'Price': $("#Price").val(),
+                        'Description': $("#Description").val(),
+                        'MainImage': files,
+                    },
+                    success: function () {
+                        alert("ثبت با موفقیت انجام شد.");
+                        window.location.href = "@Url.Action("Index", "Products")";
+                    },
+                    error: function () {
+                        alert("خطایی رخ داده است.");
+                        window.location.href = "@Url.Action("Index", "Products")";
+
+                    },
+                });
+            });
+
+            $("#Save").on("click", function (e) {
+                e.preventDefault();
+
+                // Append the desired file
+                var formData = new FormData();
+                var upload = $("#MainImage").getKendoUpload();
+                var files = upload.getFiles();
+
+                var otherUpload = $("#OtherImages").getKendoUpload();
+                var otherFiles = otherUpload.getFiles();
+                console.log('otherFiles: ', otherFiles)
+
+                formData.append('CategoryId', $("#CategoryId").val());
+                formData.append('Title', $("#Title").val());
+                formData.append('Quantity', $("#Quantity").val());
+                formData.append('Price', $("#Price").val());
+                formData.append('Description', $("#Description").val());
+                formData.append('MainImage', files[0].rawFile);
+                formData.append('OtherImages', otherFiles);
+
+                // Send the request
+                $.ajax({
+                    url: "@Url.Action("Create", "Products")",
+                    type: 'POST',
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function () {
+                        alert("ثبت با موفقیت انجام شد.");
+                        $("#Title").val('');
+                        $("#CategoryId").val('0');
+                        $("#Price").val('');
+                        $("#Quantity").val('');
+                        $("#Description").val('');
+                        var div = $("div").first();
+                        $("div").last().text("scrollTop:" + div.scrollTop());
+                    },
+                    error: function () {
+                        alert("خطایی رخ داده است.");
+
+                    },
+                });
+            });
+
+        });
+    </script>
+}
+
+

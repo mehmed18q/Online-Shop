@@ -1,0 +1,280 @@
+﻿@model DomainModel.Product
+@addTagHelper *, Kendo.Mvc
+@using Kendo.Mvc.UI
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "افزودن";
+}
+
+@section AddToHead{
+}
+<div class="row" style="margin: 0 15px 0 15px; direction:rtl;">
+    <!--Menu-->
+    <div class="col col-lg-3 col-sm-12">
+        <div class="box">
+            <div class="row">
+                <div class="col col-lg-2">
+                    <img src="~/images/panel/user.svg" alt="user-photo">
+                </div>
+                <div class="col col-lg-10">
+                    <p class="bold">مدیر سیستم</p>
+                </div>
+            </div>
+            <div class="line"></div>
+
+            <div class="row menu-item">
+                <div class="col col-lg-2">
+                    <img src="~/images/panel/category-active.svg " class="menu-item-image" alt="products">
+                </div>
+                <div class="col col-lg-10">
+                    <a asp-action="Index" asp-controller="Products" class="menu-item-text active">محصولات</a>
+                </div>
+            </div>
+
+            <div class="row menu-item">
+                <div class="col col-lg-2">
+                    <img src="~/images/panel/category.svg " class="menu-item-image" alt="products">
+                </div>
+                <div class="col col-lg-10">
+                    <a asp-action="Index" asp-controller="Categories" class="menu-item-text">دسته‌بندی‌ها</a>
+                </div>
+            </div>
+
+            <div class="row menu-item">
+                <div class="col col-lg-2">
+                    <img src="~/images/panel/category.svg " class="menu-item-image" alt="products">
+                </div>
+                <div class="col col-lg-10">
+                    <a asp-action="Index" asp-controller="Users" class="menu-item-text">کاربران</a>
+                </div>
+            </div>
+
+            <div class="row menu-item">
+                <div class="col col-lg-2">
+                    <img src="~/images/panel/category.svg " class="menu-item-image" alt="products">
+                </div>
+                <div class="col col-lg-10">
+                    <a asp-action="Index" asp-controller="Orders" class="menu-item-text">سفارش‌ها</a>
+                </div>
+            </div>
+            <div class="line menu-item"></div>
+            <div class="row menu-item">
+                <div class="col col-lg-2">
+                    <img src="~/images/panel/logout.svg " class="menu-item-image" alt="logout">
+                </div>
+                <div class="col col-lg-10">
+                    <a asp-action="SignIn" asp-controller="User" asp-area="" class="menu-item-text">خروج</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--content-->
+    <div class="col col-lg-9 col-sm-12">
+        <div class="box">
+            <div class="row mb-2">
+                <div class="col col-lg-2 col-sm-6">
+                    <p class="active">محصول جديد</p>
+
+                </div>
+                <div class="col col-lg-10 col-sm-6">
+                    <a id="back" class="btn btn-outline-primary btn-new">بازگشت</a>
+                </div>
+
+            </div>
+            <div class="line mb-4"></div>
+            <p>مشخصات اصلي</p>
+            <div class="row mb-4">
+                <div class="col col-lg-6 col-sm-12">
+                    <p class="input-title">نام محصول</p>
+                    <input id="Title" type="text" class="form-control mb-2" placeholder="نام محصول" required autofocus>
+
+                </div>
+                <div class="col col-lg-6 col-sm-12">
+                    <p class="input-title">دسته بندي</p>
+
+                    @*<div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle dropdown-fa" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        انتخاب دسته‌بندي
+                    </button>
+                    <div class="dropdown-menu dropdown-fa" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item dropdown-fa">آرايشي</a>
+                        <a class="dropdown-item dropdown-fa">مد</a>
+                        <a class="dropdown-item dropdown-fa">خانه</a>
+                    </div>
+                </div>*@
+                    @Html.DropDownList("Categories", ViewBag.Categories as SelectList, new { @id = "CategoryId", @class= "form-control mb-2" })
+
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col col-lg-6 col-sm-12">
+                    <p class="input-title">قيمت‌واحد <span>(تومان)</span></p>
+                    <input id="Price" type="number" class="form-control mb-2" placeholder="قيمت‌واحد" required autofocus>
+
+                </div>
+                <div class="col col-lg-6 col-sm-12">
+                    <p class="input-title">تعداد‌ موجودي</p>
+                    <input id="Quantity" type="number" class="form-control mb-2" placeholder="تعداد موجودي" required autofocus>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col col-lg-12 col-sm-12">
+                    <p class="input-title">توضيحات</p>
+                    <textarea class="form-control" rows="3" id="Description"></textarea>
+                </div>
+            </div>
+
+
+
+
+            <div class="line mb-4"></div>
+            <p>تصاوير كالا</p>
+            @*<form method="post" action='@Url.Action("Basic_Usage_Submit")'>*@
+            <div class="row mb-4">
+                <div class="col col-lg-6 col-sm-12">
+                    <p class="input-title">تصوير اصلي</p>
+                    <div class="demo-section k-content">
+                        @(Html.Kendo().Upload()
+                            .Name("MainImage")
+                            .HtmlAttributes(new { aria_label = "files" })
+                            .Multiple(false)
+                            )
+                    </div>
+                </div>
+                <div class="col col-lg-6 col-sm-12">
+                    <p class="input-title">ساير تصاوير</p>
+                    @(Html.Kendo().Upload()
+                            .Name("OtherImages")
+                            .HtmlAttributes(new { aria_label = "files" })
+                            .Multiple(true)
+                            )
+                </div>
+            </div>
+            @*</form>*@
+
+            <div class="line mb-4"></div>
+            <p>ساير مشخصات</p>
+            <div class="row mb-4">
+                <div class="col col-lg-6 col-sm-12">
+                    <p class="input-title">نام ويژگي</p>
+                    <input type="text" class="form-control mb-2" placeholder="نام ويژگي" required autofocus>
+
+                </div>
+                <div class="col col-lg-6 col-sm-12">
+                    <p class="input-title">مقدار ويژگي</p>
+                    <input type="text" class="form-control mb-2" placeholder="مقدار ويژگي" required autofocus>
+                </div>
+            </div>
+
+
+            <div class="row mb-4">
+                <div class="col col-lg-6 col-sm-12">
+                    <button id="Save" class="btn btn-success btn-block">ثبت</button>
+
+                </div>
+                <div class="col col-lg-6 col-sm-12">
+                    <button class="btn btn-primary btn-block">انصراف</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+        $(document).ready(function () {
+            $('#back').click(function () {
+                window.location.href = "@Url.Action("Index","Products")";
+            });
+
+            $("#Save1").click(function () {
+
+                var upload = $("#MainImage").data("kendoUpload"),
+                    files = upload.getFiles()[0];
+
+                console.log('files: ', files);
+
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("Create", "Products")",
+                    dataType: 'application/json; charset=utf-8',
+                    data: {
+                        'UserId': $("#UserId").val(),
+                        'CategoryId': $("#CategoryId").val(),
+                        'Title': $("#Title").val(),
+                        'Quantity': $("#Quantity").val(),
+                        'Price': $("#Price").val(),
+                        'Description': $("#Description").val(),
+                        'MainImage': files,
+                    },
+                    success: function () {
+                        alert("ثبت با موفقیت انجام شد.");
+                        window.location.href = "@Url.Action("Index", "Products")";
+                    },
+                    error: function () {
+                        alert("خطایی رخ داده است.");
+                        window.location.href = "@Url.Action("Index", "Products")";
+
+                    },
+                });
+            });
+
+            $("#Save").on("click", function (e) {
+                e.preventDefault();
+
+                // Append the desired file
+                var formData = new FormData();
+                var upload = $("#MainImage").getKendoUpload();
+                var files = upload.getFiles();
+
+                var otherUpload = $("#OtherImages").getKendoUpload();
+                var otherFiles = otherUpload.getFiles();
+                console.log('otherFiles: ', otherFiles)
+
+                formData.append('CategoryId', $("#CategoryId").val());
+                formData.append('Title', $("#Title").val());
+                formData.append('Quantity', $("#Quantity").val());
+                formData.append('Price', $("#Price").val());
+                formData.append('Description', $("#Description").val());
+                formData.append('MainImage', files[0].rawFile);
+                formData.append('OtherImages', otherFiles);
+
+                // Send the request
+                $.ajax({
+                    url: "@Url.Action("Create", "Products")",
+                    type: 'POST',
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function () {
+                        alert("ثبت با موفقیت انجام شد.");
+                        $("#Title").val('');
+                        $("#CategoryId").val('0');
+                        $("#Price").val('');
+                        $("#Quantity").val('');
+                        $("#Description").val('');
+                        var div = $("div").first();
+                        $("div").last().text("scrollTop:" + div.scrollTop());
+                    },
+                    error: function () {
+                        alert("خطایی رخ داده است.");
+
+                    },
+                });
+            });
+
+        });
+</script>
+}

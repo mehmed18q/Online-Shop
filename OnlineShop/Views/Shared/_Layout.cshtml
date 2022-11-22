@@ -1,0 +1,244 @@
+﻿
+<title>@ViewData["Title"] ،ایران کالا</title>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <link href="~/css/Footer-with-logo.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link href="https://kendo.cdn.telerik.com/2020.2.617/styles/kendo.bootstrap-v4.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://kendo.cdn.telerik.com/2020.2.617/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2020.2.617/js/kendo.all.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2020.2.617/js/kendo.aspnetmvc.min.js"></script>
+
+    
+    <link href="https://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css" rel="stylesheet" type="text/css" />
+
+
+    <title>نام فروشگاه</title>
+
+    @if (IsSectionDefined("AddToHead"))
+    {
+        @RenderSection("AddToHead", required: false)
+    }
+</head>
+
+<body class="bg">
+
+    <!-- Nav bar 1-->
+    <nav style="direction: rtl;" class="navbar navbar-expand-sm navbar-custom P-1 bg-white ">
+        <a class="navbar-brand" id="Index" style="margin-left:15px;">ایران‌کالا</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="row" style=" width: 100%;">
+                <div class="col-lg-6 col-sm-12">
+                    <input class="form-control" type="search" placeholder="جستجو در ایران‌کالا..." aria-label="Search">
+                </div>
+                <div class="col-lg-1 col-sm-12">
+                    <button id="search" class="btn btn-outline-primary my-2 my-sm-0 btn-block" type="submit"><i class="fa fa-search"></i></button>
+
+                </div>
+            </form>
+
+            <div class="col-lg-1 col-sm-12 ">
+                <button id="sign-in" class="btn btn-outline-primary my-2 my-sm-0 btn-block" type="submit">
+                    ورود
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Nav bar 2-->
+    <nav style=" direction: rtl;" class="navbar navbar-expand-sm navbar-custom shadow-sm p-3 mb-4 bg-white rounded">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto" style="font-size: small;font-weight: bold; margin-right: 4em;">
+
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        دسته بندی کالاها
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a id="19" class="dropdown-item category" href="#">کالای دیجیتال</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="20" class="dropdown-item category" href="#">آرایشی، بهداشتی و سلامت</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="21" class="dropdown-item category" href="#">مد و پوشاک</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="22" class="dropdown-item category" href="#">خانه و آشپزخانه</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="23" class="dropdown-item category" href="#">خودرو، ابزار و اداری</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="24" class="dropdown-item category" href="#">کتاب، لوازم تحریر و هنر</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="25" class="dropdown-item category" href="#">اسباب بازی، کودک و نوزاد</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="26" class="dropdown-item category" href="#">خوردنی و آشامیدنی</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">سوپر مارکت</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">تخفیف ها و پیشنهاد ها</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">درباره ی ما</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ارتباط با ما</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    @RenderBody()
+
+
+    @RenderSection("Scripts", required: false)
+    <!--Go up-->
+    <hr class="mb-3 " style=" width: 100%; border-width: 0.05px !important; border-color: #b1b1b1 !important;" />
+    <div class="mb-0 " style="display: block; margin: auto;">
+        <div class="row">
+            <p id="back-to-top">
+                بازگشت به بالا
+                <img src="~/images/footer/up-arrow.svg" style=" width:35px; " />
+            </p>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer class="mainfooter" role="contentinfo" id="myFooter" dir="rtl">
+
+        <div class="footer-middle">
+            <div class="container">
+
+                <!--services-->
+                <div class="row mb-4">
+                    <div class="col-lg-3 col-sm-6">
+                        <img src="~/images/footer/pay.svg" class="service-image card-img-top image" alt=" ... ">
+                        <h6 class="service-text">پرداخت در محل</h6>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 ">
+                        <img src="~/images/footer/exchange.svg " class="service-image card-img-top image " alt="... ">
+                        <h6 class="service-text">ضمانت بازگشت</h6>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 ">
+                        <img src="~/images/footer/delivery-truck.svg " class="service-image card-img-top image " alt="... ">
+                        <h6 class="service-text">ارسال سریع کالا</h6>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 ">
+                        <div class=" ">
+                            <img src="~/images/footer/warranty.svg " class="service-image card-img-top image " alt="... ">
+                            <h6 class="service-text">ضمانت اصل بودن کالا</h6>
+                        </div>
+                    </div>
+                </div>
+                <hr style="border-color: #606063 !important;" />
+
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <!--Column1-->
+                        <div class="footer-pad">
+                            <ul class="list-unstyled">
+                                <li class="footerItems mb-2">راهنمای خرید</li>
+                                <li><a href="#">نحوه ی ثبت سفارش</a></li>
+                                <li><a href="#">رویه ارسال سفارش</a></li>
+                                <li><a href="#">شیوه های پرداخت</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <!--Column1-->
+                        <div class="footer-pad">
+                            <ul class="list-unstyled" dir="rtl">
+                                <li class="footerItems mb-2">خدمات مشتریان</li>
+                                <li><a href="#">پرسش های متداول</a></li>
+                                <li><a href="#">رویه های بازگرداندن کالا</a></li>
+                                <li><a href="#">شرایط استفاده</a></li>
+                                <li><a href="#">حریم خصوصی</a></li>
+                                <li><a href="#">گزارش خطا</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <!--Column1-->
+                        <div class="footer-pad">
+                            <address>
+                                <ul class="list-unstyled">
+                                    <li class="footerItems mb-2">تماس با ما</li>
+                                    <li>
+                                        تلفن: 989375744408
+                                    </li>
+                                    <li>
+                                        ایمیل: sara.rasolian@gmail.com
+                                    </li>
+                                    <li>
+                                        فکس: 3456235262
+                                    </li>
+                                    <li>
+                                        دفتر مرکزی: شهرک قدس، هدایت 13، ولیعصر 13
+                                    </li>
+                                </ul>
+                            </address>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <!--Column1-->
+                        <div class="footer-pad">
+                            <span class="footerItems mb-2">نام ایران‌کالا</span>
+                            <p class="list-unstyled">
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود
+                                ابزارهای کاربردی می باشد.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container text-center">
+                طراحی شده با <i class="fa fa-heart heart"></i> توسط فرشته عرب‌پور و سارا رسولیان
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            $('#sign-in').click(function () {
+                //window.open("Sign-in.html", "_self");
+                window.location.href = "@Url.Action("SignIn","User")";
+            });
+
+            $('#Index').click(function () {
+                window.location.href = "@Url.Action("Index","Home", new { Area = "" })";
+            });
+
+            $(document).on('click', '.category', function () {
+                var id = $(this).attr("id");
+                window.location.href = "/Products/List?categoryId=" + id;
+            });
+        });
+    </script>
+
+</body>
+</html>

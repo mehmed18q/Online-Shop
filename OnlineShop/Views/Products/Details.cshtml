@@ -1,0 +1,120 @@
+﻿@model ViewModel.ProductDetailsViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = Html.DisplayFor(model => model.Title);
+}
+
+<div class="product-page mb-4" style="direction: rtl;">
+    <label class="mb-3 path">فروشگاه اینترنتی ایران‌کالا / <span>@Html.DisplayFor(model => model.CategoryTitle)</span> / <span>@Html.DisplayFor(model => model.Title)</span></label>
+    <label id="CategoryId" name="@Html.DisplayFor(model => model.CategoryId)"></label>
+    <div class="product-box">
+        <div class="row" style="padding: 2rem;">
+            <div class="col-lg-3 col-sm-6">
+                <img id="main-image" src="@Html.DisplayFor(model => model.MainImageTitle)" class="product-main-image">
+                <div style="display: inline-block;">
+                    <!--Other images here-->
+                </div>
+            </div>
+            <div class="col-lg-9 col-sm-12">
+                <div>
+                    <h5 class="mb-5">@Html.DisplayFor(model => model.Title)</h5>
+                </div>
+                <div class="row">
+                    <div class="col-lg-7 col-sm-6">
+                        <p class="product-property">@Html.DisplayFor(model => model.Description)</p>
+                    </div>
+
+                    <div class="col-lg-5 col-sm-6">
+                        <div style=" background-color: #f6f6f6; height: 100%; border: solid #dfdfdf 1px; border-radius: 10px;">
+                            <div class="row product-details-price">
+                                <p class="card-price-unit">تومان</p>
+                                <p class="card-price">@Html.DisplayFor(model => model.Price)</p>
+                            </div>
+                            <button id="@Html.DisplayFor(model => model.Id)" class="btn btn-danger " style="padding: 1rem 5rem 1rem 5rem; font-size: large; margin: 0 57px 50px 0;">افزودن به سبد خرید</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-7 col-sm-12">
+                        <hr style="border-color: #dfdfdf !important;" />
+
+                    </div>
+                    <div class="col-lg-5 col-sm-0"></div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--Products box-->
+<div class="product-page part mb-4">
+    <div class="row">
+        <div class="col-lg-3">
+            <h6 class="part-titr">محصولات مشابه</h6>
+            <hr class="part-line" />
+        </div>
+        <div class="col-lg-9 show-title">
+            <h6 href="#" class="show-text">مشاهده همه</h6>
+            <hr class="part-line-all" />
+        </div>
+    </div>
+
+    <div class="row" id="similar"></div>
+</div>
+
+@section Scripts{
+    <!--Image gallery-->
+    <script src="~/js/blowup.js"></script>
+    <script>
+        $(document).ready(function () {
+            //zoom by hover
+            $("#main-image").blowup();
+
+            //load ajax similar products
+            $('#similar').html('');
+            var id = $('#CategoryId').attr("name");
+            var request = $.ajax({
+            url: "@Url.Action("PreviewProducts", "Products")",
+            type: 'GET',
+            data: { CategoryId: id } ,
+            contentType: 'application/json; charset=utf-8'
+            });
+            request.done(function(data) {
+                for (var i = 0; i < data.length; i++) {
+                    $("#similar").append(
+                        "<div id=" + data[i].id + " class=\"col-lg-2 col-sm-4 product-card product\" >"
+                        +"<div class=\"card card-product\">"
+                        + "<img src=\"" + data[i].mainImageTitle +"\" class=\"product-image card-img-top\">"
+                        +"    <div class=\"card-body\">"
+                        + "        <h5 class=\"card-title\">" + data[i].title +"</h5>"
+                        +"       <div class=\"row card-price-info\">"
+                        + "            <p class=\"card-price-unit\">تومان</p>"
+                        + "            <p class=\"card-price\">" + data[i].price+"</p>"
+                        + "        </div>"
+                        +"   </div>"
+                        +"</div>"
+                        + "</div >"
+
+                    );
+                };
+            });
+            request.fail(function (jqXHR, textStatus) {
+                alert('خطایی رخ داده است');
+            });
+
+        });
+
+
+
+        $(document).on('click', '.product', function () {
+            var id = $(this).attr("id");
+            window.location.href = "/Products/Details?id=" + id;
+        });
+    </script>
+    }
+
