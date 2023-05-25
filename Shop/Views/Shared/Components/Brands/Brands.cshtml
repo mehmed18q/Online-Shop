@@ -1,0 +1,15 @@
+﻿@using Framework
+
+@model IEnumerable<Brand>
+
+@if (Model.ToTryAny())
+{
+    foreach (var item in Model)
+    {
+        <div class="col-lg-2 col-sm-4 product-card" title="@item.Title">
+            <a href="Products/ListByBrand/@item.Id">
+            <img src="~/images/brands/@item.Image" alt="@item.Title" class="img-thumbnail">
+            </a>
+        </div>
+    }
+}

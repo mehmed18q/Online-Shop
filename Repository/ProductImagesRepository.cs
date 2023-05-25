@@ -5,45 +5,45 @@ using System.Linq;
 
 namespace Repository
 {
-    public class ProductImagesRepository : IDataRepository<ProductImages>
+    public class ProductImagesRepository : IDataRepository<ProductImage>
     {
-        private readonly OnlineShopContext _onlineShopContext;
-        public ProductImagesRepository(OnlineShopContext onlineShopContext)
+        private readonly ShopContext _onlineShopContext;
+        public ProductImagesRepository(ShopContext onlineShopContext)
         {
             _onlineShopContext = onlineShopContext;
         }
 
-        public IEnumerable<ProductImages> GetAll()
+        public IEnumerable<ProductImage> GetAll()
         {
-            return _onlineShopContext.GetProductImages.ToList();
+            return _onlineShopContext.ProductImages.ToList();
         }
 
-        public ProductImages Get(long id)
+        public ProductImage Get(long id)
         {
-            return _onlineShopContext.GetProductImages
+            return _onlineShopContext.ProductImages
                   .FirstOrDefault(e => e.Id == id);
         }
-        public ProductImages GetByProductId(int ProductId)
+        public ProductImage GetByProductId(int ProductId)
         {
-            return _onlineShopContext.GetProductImages
+            return _onlineShopContext.ProductImages
                   .FirstOrDefault(e => e.ProductId == ProductId && e.IsMain);
         }
 
-        public void Add(ProductImages entity)
+        public void Add(ProductImage entity)
         {
-            entity.CreateDate = DateTime.Now;
-            _onlineShopContext.GetProductImages.Add(entity);
+            entity.CreatedAt = DateTime.Now;
+            _onlineShopContext.ProductImages.Add(entity);
             _onlineShopContext.SaveChanges();
         }
 
-        public void Update(ProductImages dbEntity, ProductImages entity)
+        public void Update(ProductImage dbEntity, ProductImage entity)
         {
             dbEntity.Title = entity.Title;
 
             _onlineShopContext.SaveChanges();
         }
 
-        public void Delete(ProductImages entity)
+        public void Delete(ProductImage entity)
         {
             entity.IsDelete = true;
             _onlineShopContext.SaveChanges();

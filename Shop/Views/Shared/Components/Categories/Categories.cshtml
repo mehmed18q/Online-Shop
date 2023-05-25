@@ -1,0 +1,31 @@
+﻿@using Framework
+@model IEnumerable<Category>
+<style>
+    .category, .category:hover {
+        color: #535353 !important;
+        text-decoration: none !important;
+    }
+</style>
+<div class="mb-2">
+    <hr class="mb-4" />
+    <div class="container ">
+        <h4 class="mb-4">دسته های محبوب</h4>
+        @if (Model.ToTryAny())
+        {
+            <div class="row mb-4">
+                @foreach (var item in Model)
+                {
+                    <a href="Products/ListByCategory/@item.Id" class="col-lg-3 col-sm-6 category" title="@item.Title">
+                        <div class="category-container  card category-card">
+                            <img id="category-home" src="~/images/category/@item.Image" class="card-img-top image" alt="@item.Title">
+                            <div class="card-body">
+                                <h6>@item.Title</h6>
+                            </div>
+                        </div>
+                    </a>
+                }
+            </div>
+        }
+    </div>
+    <hr />
+</div>

@@ -1,0 +1,388 @@
+INSERT INTO [dbo].[UserType]
+           (id, [Name] ,[Title])
+     VALUES
+           (1 و 'User', N'کاربر')
+
+		   INSERT INTO [dbo].[UserType]
+           (id, [Name] ,[Title])
+     VALUES
+           (2 و 'Admin', N'مدیر')
+
+INSERT INTO [dbo].[User]
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,[UserTypeId] ,[FullName], [Email],[Password] ,[MobileNumber], [Address])
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 2,  N'مدیر سیستم', N'admin@shop.com','admin@shop', '+989217074647', 'Qom')
+
+INSERT INTO [dbo].[Brand]
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete] ,[Name] ,[Title], Image)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,  'Huawei', N'هواوی', 'brand1.jpg')
+GO
+INSERT INTO [dbo].[Brand]
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete] ,[Name] ,[Title], Image)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,  'Adata', N'آداتا', 'brand2.jpg')
+GO
+INSERT INTO [dbo].[Brand]
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete] ,[Name] ,[Title], Image)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,  'G Plus', N'جی پلاس', 'brand3.jpg')
+GO
+INSERT INTO [dbo].[Brand]
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete] ,[Name] ,[Title], Image)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,  'Samsung', N'سامسونگ', 'brand4.jpg')
+
+		   INSERT INTO [dbo].[Brand]
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete] ,[Name] ,[Title], Image)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,  'Shahab', N'شهاب', 'brand5.jpg')
+
+		   INSERT INTO [dbo].[Brand]
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete] ,[Name] ,[Title], Image)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,  'On Star', N'آن استار', 'brand6.jpg')
+		   INSERT INTO [dbo].[Brand]
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete] ,[Name] ,[Title], Image)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,  'X Vision', N'ایکس ویژن', 'brand7.jpg')
+		   INSERT INTO [dbo].[Brand]
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete] ,[Name] ,[Title], Image)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,  'PakShoma', N'پاک شوما', 'brand8.jpg')
+
+		   INSERT INTO [dbo].[Brand]
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete] ,[Name] ,[Title], Image)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,  'Panasonic', N'پاناسونیک', 'brand9.jpg')
+
+		   INSERT INTO [dbo].[Brand]
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete] ,[Name] ,[Title], Image)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,  'Pars Khazar', N'پارس خزر', 'brand10.jpg')
+
+INSERT INTO [dbo].[Category]
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete] ,[Name] ,[Title], Image)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,  '', N'کالای دیجیتال', 'category01.jpg')
+GO
+INSERT INTO [dbo].[Category]
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete] ,[Name] ,[Title], image)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,  '', N'آرایشی، بهداشتی و سلامت', 'category02.jpg')
+GO
+INSERT INTO [dbo].[Category]
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete] ,[Name] ,[Title], image)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,  '', N'مد و پوشاک', 'category05.jpg')
+GO
+INSERT INTO [dbo].[Category]
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete] ,[Name] ,[Title], image)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,  '', N'خانه و آشپزخانه', 'category08.jpg')
+GO
+INSERT INTO [dbo].[Category]
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete] ,[Name] ,[Title], image)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,  '', N'خودرو، ابزار و اداری', 'category04.jpg')
+GO
+INSERT INTO [dbo].[Category]
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete] ,[Name] ,[Title], image)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,  '', N'کتاب، لوازم تحریر و هنر', 'category03.jpg')
+GO
+INSERT INTO [dbo].[Category]
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete] ,[Name] ,[Title], image)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,  '', N'اسباب بازی، کودک و نوزاد', 'category07.jpg')
+GO
+INSERT INTO [dbo].[Category]
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete] ,[Name] ,[Title], image)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,  '', N'خوردنی و آشامیدنی', 'category09.jpg')
+GO
+
+
+INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 9,  8, N'گوشی سامسونگ',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 10,  10, N'ریمل',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 10,  10, N'ماتیک',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 10,  10, N'ژل',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 10,  10, N'لاک',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 10,  10, N'کرم',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 10, 10, N'پک آرایشی',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 12,  9, N'قاب عاشقانه',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 16,  10, N'قمقمه آب',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 10,  10, N'کرم',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 9,  5, N'هندزفری هواوی',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 12,  9, N'پرده',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 12,  9, N'مبل',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 9,  7, N'هدفون',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 9,  8, N'گوشی جدید',10, '50000')
+
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 10,  10, N'لاک پاک کن',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 10,  10, N'ماتیک',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 9,  8, N'گوشی خفن',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 12,  9, N'پرده',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 9,  8, N'گوشی هنگ نکن',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 10,  10, N'ریمل',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 10,  10, N'ماتیک',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 9,  7, N'هدفون قرمز',10, '50000')
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 9,  7, N'سفید هدفون',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 9,  8, N'قاب گوشی سامسونگ',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 12,  9, N'آییته',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 9,  8, N'گوشی 2022',10, '50000')
+
+		   INSERT INTO [dbo].Product
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,CategoryId, BrandId, Title, Quantity, Price)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 10, 10, N'لوازم آرایشی قلبی',10, '50000')
+
+
+
+INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 1, N'6b48307ec924f86de3465854fe3cf2d10c23c57f.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 2, N'190663.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 3, N'439050.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 4, N'496988.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 5, N'800592.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 6, N'976964.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 7, N'2050197.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 8, N'2516912.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 9, N'2518622.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 10, N'3125859.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 11, N'110490789.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 12, N'111507468.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 13, N'111623094.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 14, N'113437044.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 15, N'113845063.jpg',1)
+
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 16, N'114020484.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 17, N'114073028.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 18, N'114171306.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 19, N'114238070.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 20, N'115604447.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 21, N'119005271.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null,22, N'119025873.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 23, N'119107741.jpg',1)
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 24, N'119746528.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 25, N'119868674.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 26, N'119934270.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null, 27, N'121560267.jpg',1)
+
+		   INSERT INTO [dbo].ProductImages
+           ([CreatedAt] ,[CreatedBy]  ,[EditedAt] ,[EditedBy] ,[IsDelete],[DeletedAt] ,[DeletedBy] ,ProductId, Title, IsMain)
+     VALUES
+           (GETDATE()  ,1 ,null  ,null  ,0 ,null  ,null,28,  N'121816751.jpg',1)
+update Product set Description = N'تست اولیه'
+

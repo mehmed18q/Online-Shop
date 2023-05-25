@@ -1,0 +1,12 @@
+﻿@using Framework
+
+@model IEnumerable<Category>
+
+@if (Model.ToTryAny())
+{
+    foreach (var item in Model)
+    {
+        <a id="@item.Id" class="dropdown-item category" href="Products\ListByCategory\@item.Id">@item.Title</a>
+        <div class="dropdown-divider"></div>
+    }
+}

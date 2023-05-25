@@ -1,24 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DomainModel
 {
     [Table("Order")]
-    public class Order:ObjectModel
+    public class Order : ObjectModel
     {
-        public Order() { }
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public Order()
+        {
+            UserId = 0;
+            User = new User();
+            OrderStatusId = 0;
+            OrderStatus = new OrderStatus();
+            TotalPrice = string.Empty;
+            OrderItems = new List<OrderItem>();
+        }
         public int UserId { get; set; }
         public User User { get; set; }
-        public int OrderStaus { get; set; }
-        public OrderStatus orderStatus { get; set; }
+        public int OrderStatusId { get; set; }
+        public OrderStatus OrderStatus { get; set; }
         public string TotalPrice { get; set; }
-        public List<OrderItems> orderItems { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
     }
 }

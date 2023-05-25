@@ -7,8 +7,8 @@ namespace Repository
 {
     public class ProductRepository : IDataRepository<Product>
     {
-        private readonly OnlineShopContext _onlineShopContext;
-        public ProductRepository(OnlineShopContext onlineShopContext)
+        private readonly ShopContext _onlineShopContext;
+        public ProductRepository(ShopContext onlineShopContext)
         {
             _onlineShopContext = onlineShopContext;
         }
@@ -38,7 +38,7 @@ namespace Repository
 
         public void Add(Product entity)
         {
-            entity.CreateDate = DateTime.Now;
+            entity.CreatedAt = DateTime.Now;
             _onlineShopContext.Products.Add(entity);
             _onlineShopContext.SaveChanges();
         }

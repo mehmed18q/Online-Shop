@@ -1,0 +1,40 @@
+﻿@using ViewModel
+@using Framework
+@model IEnumerable<PreviewProductViewModel>
+@{
+    var Category = (Category)ViewBag.Category;
+    var customTitle = (string?)ViewBag.customTitle;
+    if (customTitle.IsEmpty())
+        customTitle = Category.Title;
+}
+<div class="row">
+    <div class="col-lg-3">
+        <h6 class="part-titr">@customTitle</h6>
+        <hr class="part-line" />
+    </div>
+    <div class="col-lg-9 show-title">
+        <a href="Products/ListByCategory/@Category.Id" class="show-text"><h6>مشاهده همه</h6></a>
+        <hr class="part-line-all" />
+    </div>
+</div>
+
+<div class="row">
+    @if (Model.ToTryAny())
+    {
+        foreach (var item in Model)
+        {
+            <a href="Products/Details/@item.Id" class="col-lg-2 col-sm-4 product-card product">
+                <div class="card card-product">
+                    <img src="@item.MainImageTitle" class="product-image card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Title</h5>
+                        <div class="row card-price-info">
+                            <p class="card-price-unit">تومان</p>
+                            <p class="card-price">@item.Price</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        }
+    }
+</div>

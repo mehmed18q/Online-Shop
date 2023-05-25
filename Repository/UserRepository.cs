@@ -7,8 +7,8 @@ namespace Repository
 {
     public class UserRepository : IDataRepository<User>
     {
-        private readonly OnlineShopContext _onlineShopContext;
-        public UserRepository(OnlineShopContext onlineShopContext)
+        private readonly ShopContext _onlineShopContext;
+        public UserRepository(ShopContext onlineShopContext)
         {
             _onlineShopContext = onlineShopContext;
         }
@@ -26,7 +26,7 @@ namespace Repository
 
         public void Add(User entity)
         {
-            entity.CreateDate = DateTime.Now;
+            entity.CreatedAt = DateTime.Now;
             //entity.CreateBy = entity.Id;
             _onlineShopContext.Users.Add(entity);
             _onlineShopContext.SaveChanges();

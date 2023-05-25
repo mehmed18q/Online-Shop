@@ -8,8 +8,8 @@ namespace Repository
 {
     public class CategoryRepository : IDataRepository<Category>
     {
-        private readonly OnlineShopContext _onlineShopContext;
-        public CategoryRepository(OnlineShopContext onlineShopContext)
+        private readonly ShopContext _onlineShopContext;
+        public CategoryRepository(ShopContext onlineShopContext)
         {
             _onlineShopContext = onlineShopContext;
         }

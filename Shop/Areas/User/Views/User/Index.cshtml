@@ -1,0 +1,54 @@
+﻿@model DomainModel.Order
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col col-lg-9 col-sm-12">
+            <div class="box">
+                <div class="row mb-2">
+                    <div class="col col-lg-2 col-sm-6">
+                        <p class="active">ويرايش مشخصات</p>
+                    </div>
+                    <div class="col col-lg-10 col-sm-6">
+                        <a href="Index.html" class="btn btn-outline-primary btn-new">بازگشت</a>
+                    </div>
+                </div>
+                <div class="line mb-4"></div>
+                <div class="row mb-4">
+                    <div class="col col-lg-6 col-sm-12">
+                        <p class="input-title">نام و نام خانوادگي</p>
+                        <input type="text" class="form-control mb-2" placeholder="نام محصول" required="" autofocus="">
+                    </div>
+                    <div class="col col-lg-6 col-sm-12">
+                        <p class="input-title">شماره تماس</p>
+                        <input type="text" class="form-control mb-2" placeholder="شماره تماس" required="" autofocus="">
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col col-lg-6 col-sm-12">
+                        <p class="input-title">ايميل</p>
+                        <input type="text" class="form-control mb-2" placeholder="ايميل" required="" autofocus="">
+                    </div>
+                    <div class="col col-lg-6 col-sm-12">
+                        <p class="input-title">گذر &zwnj;واژه</p>
+                        <input type="text" class="form-control mb-2" placeholder="گذر واژه" required="" autofocus="">
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col col-lg-12 col-sm-12">
+                        <p class="input-title">آدرس</p>
+                        <textarea class="form-control" rows="3" id="comment"></textarea>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col col-lg-6 col-sm-12">
+                        <a href="Index.html" class="btn btn-success btn-block">ثبت</a>
+                    </div>
+                    <div class="col col-lg-6 col-sm-12">
+                        <a href="Index.html" class="btn btn-primary btn-block">انصراف</a>
+                    </div>
+                </div>
+            </div>
+        </div>
